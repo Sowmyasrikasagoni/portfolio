@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Animated Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8ffff;
+    }
+
+    .my_pic {
+      position: relative;
+      width: 20%;
+      float: right;
+      margin: 40px;
+      border: 3px solid pink;
+      border-radius: 55px;
+
+      /* Animation Start State */
+      transform: translateX(100px);
+      opacity: 0;
+
+      /* Animation Properties */
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .my_pic img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 50px;
+    }
+
+    .introduction {
+      padding: 80px;
+      background-color: aquamarine;
+      width: 1200px;
+      margin: 40px auto;
+      border-radius: 10px;
+      max-width: 1200px;
+    }
+
+    .introduction h1 {
+      text-decoration: underline;
+      color: whitesmoke;
+      text-align: center;
+    }
+
+    .introduction h2 {
+      font-size: 18px;
+      color: #000;
+      font-weight: normal;
+    }
+
+    .resume_download {
+      background-color: aquamarine;
+      padding: 40px;
+      width: 1200px;
+      margin: 0 auto 100px auto;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .resume_download a {
+      text-decoration: none;
+      font-size: 20px;
+      color: blue;
+      font-weight: bold;
+    }
+
+    .resume_download a:hover {
+      color: darkblue;
+    }
+
+    @media screen and (max-width: 768px) {
+      .introduction, .resume_download {
+        width: 90%;
+      }
+
+      .my_pic {
+       width: 60%;
+    float: none;
+    margin: 20px auto;
+      }
+    }
+    .skills-section {
+      margin: 40px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #4B2E83;
+      border-bottom: 2px solid #4B2E83;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .skill-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+    justify-content: center;
+    }
+
+    .skill-card {
+      min-width: 120px;
+      height: 100px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      width: 80px;
+   
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .skill-card span {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Scrollbar styling */
+    .skill-container::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .skill-container::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+    .experience-section {
+  padding: 80px 40px;
+  background-color: #f8f9fa;
+  animation: slideUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.experience-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.experience-card h3 {
+  color: #4B2E83;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.experience-card p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.duration {
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+.section-heading {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  color: #2e1065;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.projects-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.projects-section h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #4B2E83;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-left: 6px solid #4B2E83;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 15px;
+  padding: 10px 18px;
+  background-color: #4B2E83;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #371a61;
+}
+.achievements-section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .achievements-section h2 {
+      text-align: center;
+      color: #4B2E83;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    /* Hide radio inputs */
+    input[type="radio"] {
+      display: none;
+    }
+
+    .slides {
+      position: relative;
+      height: 1000px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Show selected slide */
+    #ach1:checked ~ .slides .s1,
+    #ach2:checked ~ .slides .s2,
+    #ach3:checked ~ .slides .s3,
+    #ach4:checked ~ .slides .s4 {
+      opacity: 1;
+      position: relative;
+    }
+
+    .slide-content {
+      font-size: 17px;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    .slide-content a {
+      color: #4B2E83;
+      text-decoration: underline;
+    }
+
+    .navigation-dots {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .dot {
+      height: 14px;
+      width: 14px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #ach1:checked ~ .navigation-dots label[for="ach1"],
+    #ach2:checked ~ .navigation-dots label[for="ach2"],
+    #ach3:checked ~ .navigation-dots label[for="ach3"],
+    #ach4:checked ~ .navigation-dots label[for="ach4"] {
+      background-color: #4B2E83;
+      width: 18px;
+    }
+  .footer {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin-top: 50px;
+  border-top: 2px solid #ccc;
+}
+
+.footer h2 {
+  font-size: 26px;
+  color: #4B2E83;
+  margin-bottom: 10px;
+}
+
+.footer .social-links {
+  margin-top: 20px;
+}
+
+.footer .social-links a {
+  display: inline-block;
+  margin: 10px 15px;
+  padding: 8px 16px;
+  border: 1px solid #4B2E83;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #4B2E83;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer .social-links a:hover {
+  background-color: #4B2E83;
+  color: white;
+}
+
+.end-tag {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Profile Image -->
+  <div class="my_pic">
+    <img src="my_pic.jpg" alt="mypic">
+  </div>
+
+  <!-- About Me Section -->
+  <div class="introduction" id="about">
+    <h1>🌟 About Me</h1>
+    <h2>
+      I'm Kasagoni Sowmya Sri, a passionate and self-driven Computer Science and Data Science undergraduate at SR University.
+      I thrive on solving real-world problems through code — whether it's building machine learning models, deploying cloud-native solutions,
+      or visualizing data for actionable insights. With 100+ problems solved on LeetCode and top-tier ranks on HackerRank (6⭐ in Problem Solving, 5⭐ in Python),
+      I bring consistency and depth in problem-solving. I’ve worked on impactful projects ranging from rental management systems to placement prediction models,
+      and contributed as a freelance data analyst.
+      <br><br>
+      As the Management Head of the ACM Student Chapter, I lead technical events, hackathons, and community engagement, blending technical expertise with team leadership.
+      My toolkit includes Python, Java, C++, SQL, React.js, Node.js, Docker, Kubernetes, AWS, and Power BI — and I’m always learning.
+      I believe in writing clean, purposeful code, building things that matter, and growing through collaboration, curiosity, and impact.
+    </h2>
+  </div>
+
+  <!-- Resume Download Section -->
+  <div class="resume_download">
+    <a href="my_resume_official.pdf" target="_blank">Download my resume</a>
+  </div>
+ <div class="skills-section">
+    <h2 class="section-title">Programming Languages</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="Python_icon.png"><span>Python</span></div>
+      <div class="skill-card"><img src="java_icon.png"><span>Java</span></div>
+      
+    </div>
+  </div>
+
+  <!-- Web Development -->
+  <div class="skills-section" id="skills">
+    <h2 class="section-title">Web Development</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="HTML5_logo.png"><span>HTML5</span></div>
+      <div class="skill-card"><img src="CSS3_logo.png"><span>CSS3</span></div>
+      <div class="skill-card"><img src="Bootstrap_logo.png"><span>Bootstrap</span></div>
+      <div class="skill-card"><img src="react-logo.png"><span>React.js</span></div>
+      <div class="skill-card"><img src="Tailwind_CSS_Logo.png"><span>Tailwind CSS</span></div>
+      <div class="skill-card"><img src="dom.png"><span>DOM</span></div>
+    </div>
+  </div>
+
+  <!-- Backend & Frameworks -->
+  <div class="skills-section">
+    <h2 class="section-title">Backend & Frameworks</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="node-js-logo.png"><span>Node.js</span></div>
+      <div class="skill-card"><img src="express-js-icon.png"><span>Express.js</span></div>
+      <div class="skill-card"><img src="spring_boot_logo.png"><span>Spring Boot</span></div>
+      <div class="skill-card"><img src="dot-NET_icon.png"><span>.NET</span></div>
+      <div class="skill-card"><img src="ASP.NET_icon.png"><span>ASP.NET</span></div>
+      <div class="skill-card"><img src="pic_of_servlets.jpg"><span>JSP/Servlets</span></div>
+    </div>
+  </div>
+
+  <!-- Java Frameworks -->
+  <div class="skills-section">
+    <h2 class="section-title">Java Frameworks</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="spring_icon.png"><span>Spring Core</span></div>
+
+      
+      <div class="skill-card"><img src="java swing-logo.png"><span>swing</span></div>
+      <div class="skill-card"><img src="javaFX_iocn.png"><span>javaFX</span></div>
+
+    </div>
+  </div>
+
+  <!-- Databases -->
+  <div class="skills-section">
+    <h2 class="section-title">Databases</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="mysql-logo.png"><span>MySQL</span></div>
+      <div class="skill-card"><img src="mangoDB.png"><span>MongoDB</span></div>
+      
+      <div class="skill-card"><img src="Sqlite-icon.png"><span>SQLite</span></div>
+    </div>
+  </div>
+
+  <!-- Cloud & DevOps -->
+  <div class="skills-section">
+    <h2 class="section-title">Cloud & DevOps</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="aws_icon.png"><span>AWS</span></div>
+      <div class="skill-card"><img src="Microsoft_Azure._icon.png"><span>Azure</span></div>
+      <div class="skill-card"><img src="firebase_icon.png"><span>Firebase</span></div>
+      <div class="skill-card"><img src="Docker_icon.png"><span>Docker</span></div>
+      <div class="skill-card"><img src="Kubernetes_icon.png"><span>Kubernetes</span></div>
+      <div class="skill-card"><img src="GitHub Actions_icons.png"><span>GitHub Actions</span></div>
+      <div class="skill-card"><img src="Jenkins_icon.png"><span>Jenkins</span></div>
+      <div class="skill-card"><img src="Terraform_icon.png"><span>Terraform</span></div>
+    </div>
+  </div>
+
+  <!-- Data Science & ML -->
+  <div class="skills-section">
+    <h2 class="section-title">Data Science & ML</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="pandas_icon.png"><span>Pandas</span></div>
+      <div class="skill-card"><img src="NumPy_icon.png"><span>NumPy</span></div>
+      <div class="skill-card"><img src="Scikit_learn_logo_small.svg.png"><span>Scikit-learn</span></div>
+      <div class="skill-card"><img src="Matplotlib_icon.png"><span>Matplotlib</span></div>
+      <div class="skill-card"><img src="TensorFlow_icon.png"><span>TensorFlow</span></div>
+      <div class="skill-card"><img src="Keras_logo.png"><span>Keras</span></div>
+      <div class="skill-card"><img src="Power_BI_Logo.png"><span>Power BI</span></div>
+      <div class="skill-card"><img src="Tableau_icon.png"><span>Tableau</span></div>
+    </div>
+  </div>
+
+  <!-- Tools -->
+  <div class="skills-section">
+    <h2 class="section-title">Tools & Platforms</h2>
+    <div class="skill-container">
+      <div class="skill-card"><img src="git-icon.png"><span>Git</span></div>
+      <div class="skill-card"><img src="GitHub_icons.png"><span>GitHub</span></div>
+      <div class="skill-card"><img src="Visual_Studio_Codeicon.png"><span>VS Code</span></div>
+      <div class="skill-card"><img src="IntelliJ_IDEA_Icon.png"><span>IntelliJ</span></div>
+      <div class="skill-card"><img src="eclipse-11-logo.png"><span>Eclipse</span></div>
+      <div class="skill-card"><img src="jupiter_icon.png"><span>Jupyter</span></div>
+    
+     
+    </div>
+  </div>
+  <!-- Experience Section -->
+<div class="experience-section" id="experience">
+  <h2 class="section-heading">Experience</h2>
+
+  <div class="experience-card">
+    <h3>Freelance Data Analyst</h3>
+    <p>
+      Worked with a client on a freelance data analysis project focused on generating insights from large datasets.<br><br>
+      Used Python (Pandas, Matplotlib, Seaborn) and Power BI to clean, analyze, and visualize data.<br><br>
+      Delivered interactive dashboards and clear reports that supported client decision-making.<br><br>
+      Demonstrated strong communication and time management while handling all stages of the project independently.
+    </p>
+    <span class="duration">Jan 2024 – Mar 2024 | Remote</span>
+  </div>
+</div>
+<!--projects-->
+<!-- index.html or projects.html -->
+<section class="projects-section" id="projects">
+  <h2>My Projects</h2>
+
+  <div class="project-card">
+    <div class="project-title">Dry Eye Disease Prediction</div>
+    <p class="project-description">
+      ML-based classification model to detect dry eye condition from clinical data using Random Forest, SVM, and LightGBM.
+    </p>
+    <a class="project-link" href="project1.html" target="_blank">More about this project</a>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">Skin Cancer Detection</div>
+    <p class="project-description">
+      Deep learning (CNN + LSTM) based skin lesion classifier trained on dermoscopic images with 97%+ accuracy.
+    </p>
+    <a class="project-link" href="project2.html" target="_blank">More about this project</a>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">PhonePe Homepage Clone</div>
+    <p class="project-description">
+      A static clone of PhonePe’s homepage using HTML & CSS. Includes sliders, animated service cards, and sticky navigation.
+    </p>
+    <a class="project-link" href="project3.html" target="_blank">More about this project</a>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">Car Rental Management System</div>
+    <p class="project-description">
+      A Python-based command-line application for booking, returning, and tracking rental cars with automated calculations.
+    </p>
+    <a class="project-link" href="project4.html" target="_blank">More about this project</a>
+  </div>
+
+  <div class="project-card">
+    <div class="project-title">Placement Prediction System</div>
+    <p class="project-description">
+      Machine learning model to predict student placement outcomes based on academic scores, skills, and internship experience.
+    </p>
+    <a class="project-link" href="project5.html" target="_blank">More about this project</a>
+  </div>
+</section>
+<section class="achievements-section" id="Extracurricular-Activities">
+  <h2>Extracurricular-Activities</h2>
+
+  <!-- Radio controls -->
+  <input type="radio" name="achieve" id="ach1" checked>
+  <input type="radio" name="achieve" id="ach2">
+  <input type="radio" name="achieve" id="ach3">
+  <input type="radio" name="achieve" id="ach4">
+
+  <!-- Slides -->
+  <div class="slides">
+    <div class="slide s1">
+      <div class="slide-content">
+        🎭 Performed in <strong>Skarkrill Event</strong> on social issues like <em>women trafficking, drug addiction</em>, and public awareness — received high audience appreciation.
+      <img src="sparkrill.jpg" sparkrill>
+      </div>
+    </div>
+    <div class="slide s2">
+      <div class="slide-content">
+        🎓 Worked as a <strong>Student Coordinator</strong> in SRU’s Convocation Ceremony, managing guest entries and volunteer coordination.<br>
+        <a href="canvocation.pdf" target="_blank">View Certificate</a>
+      </div>
+    </div>
+    <div class="slide s3">
+      <div class="slide-content">
+        🧩 Part of the <strong>Event Management Team</strong> of ACM Student Chapter — contributed to outreach, promotion, and logistics for technical events and club activities.
+       <br>
+        <img src="ACM.jpg"style="width: 1000px; height: 500px;"ACM>
+      </div>
+    </div>
+    <div class="slide s4">
+      <div class="slide-content">
+        🎬 Participated in <strong>Chilana Chitra</strong> (Drama Club) event. Acted in a stage play and helped in direction and promotion.<br>
+        <a href="chalana-chitra.jpg" target="_blank">View Event Photo / Certificate</a>
+        <img src="kathanika.jpg" kathnika>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation dots -->
+  <div class="navigation-dots">
+    <label class="dot" for="ach1"></label>
+    <label class="dot" for="ach2"></label>
+    <label class="dot" for="ach3"></label>
+    <label class="dot" for="ach4"></label>
+  </div>
+
+</section>
+<!-- Contact Section / Footer -->
+<footer class="footer" id="connect-me">
+  <h2>📫 Get in Touch</h2>
+  <p>You can reach me via email or connect through the platforms below:</p>
+  
+  <div class="social-links">
+    <a href="mailto:sowmyasrikasagoni@gmail.com" target="_blank">📧 Email</a>
+    <a href="https://www.linkedin.com/in/sowmya-sri-kasagoni-010783252/" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/sowmyasrikasagoni" target="_blank">💻 GitHub</a>
+    <a href="https://leetcode.com/u/sowmyakasagoni456/" target="_blank">🧠 LeetCode</a>
+  </div>
+  
+  <p class="end-tag">© 2025 Kasagoni Sowmya Sri. All rights reserved.</p>
+</footer>
+
+
+
+
+</body>
+</html>
